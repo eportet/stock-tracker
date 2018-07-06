@@ -17,6 +17,7 @@
 	> .results-body > .results-row > .results-info {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		// Item
 		> .item {
 			display: flex;
@@ -48,17 +49,30 @@
 	}
 }
 
+@media (max-width: 575px) {
+	.results-card > .results-body > .results-row > .results-actions {
+		& {
+			flex-direction: column;
+		}
+		> .button {
+			margin-right: 0;
+			margin-bottom: 0.25rem;
+			&:last-of-type { margin-bottom: 0; }
+		}
+	}
+}
+
 @media all and (min-width: 768px) {
 	.results-card > .results-body > .results-row > .results-info {
 		flex-direction: row;
 		> .item {
-			width: 150px;
+			width: 175px;
 		}
 	}
 }
 @media all and (min-width: 992px) {
 	.results-card > .results-body > .results-row > .results-info > .item {
-		width: 250px;
+		width: 275px;
 	}
 }
 @media all and (min-width: 1200px) {

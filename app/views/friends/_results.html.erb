@@ -17,7 +17,7 @@
 							<% if current_user.not_friends_with?(user.id) %>
 								<%= link_to "Add", add_friend_path(user: current_user, friend: user), class: "button -green", method: :post %>
 							<% else %>
-								<a class="button -blue -disable">Added</a>
+								<a class="button -grey -disable">Added</a>
 							<% end %>
 						</div>
 					</div>

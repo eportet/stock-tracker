@@ -9,32 +9,32 @@
 	</thead>
 	<tbody>
 		<% if @user_stocks.size > 0 %>
-		<% @user_stocks.each do |stock| %>
-		<tr class="table-row">
-			<td><%= stock.name %></td>
-			<td><%= stock.ticker %></td>
-			<td><%= stock.last_price %></td>
-			<% if @user.id == current_user.id %>
-			<td class="table-col" style="text-align:center">
-				<%= link_to "Unfollow", user_stock_path(stock), class: "button -danger", method: :delete %>
-			</td>
-			<% else %>
-			<td class="table-col" style="text-align:center">
-				<% if current_user.can_add_stock?(stock.ticker) %>
-					<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: stock.ticker), class: "button -green", method: :post %>
-				<% elsif current_user.stock_already_added?(stock.ticker) %>
-					<%= link_to "Added!", user_stocks_path(user: current_user, stock_ticker: stock.ticker), class: "button -disable", method: :post %>
-				<% elsif !current_user.under_stock_limit? %>
-					<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: stock.ticker), class: "button -disable", method: :post %>
+			<% @user_stocks.each do |stock| %>
+			<tr class="table-row">
+				<td><%= stock.name %></td>
+				<td><%= stock.ticker %></td>
+				<td><%= stock.last_price %></td>
+				<% if @user.id == current_user.id %>
+				<td class="table-col" style="text-align:center">
+					<%= link_to "Unfollow", user_stock_path(stock), class: "button -danger", method: :delete %>
+				</td>
+				<% else %>
+				<td class="table-col" style="text-align:center">
+					<% if current_user.can_add_stock?(stock.ticker) %>
+						<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: stock.ticker), class: "button -green", method: :post %>
+					<% elsif current_user.stock_already_added?(stock.ticker) %>
+						<%= link_to "Added!", user_stocks_path(user: current_user, stock_ticker: stock.ticker), class: "button -disable", method: :post %>
+					<% elsif !current_user.under_stock_limit? %>
+						<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: stock.ticker), class: "button -disable", method: :post %>
+					<% end %>
+				</td>
 				<% end %>
-			</td>
+			</tr>
 			<% end %>
-		</tr>
-		<% end %>
-		<% elsif current_user.id == @user %>
+		<% elsif current_user.id == @user.id %>
 			<tr>
 				<th colspan="4" class="text-center">
-					<strong>You have not following any stocks</strong>
+					<strong>You are not following any stocks</strong>
 				</th>
 			</tr>
 		<% else %>

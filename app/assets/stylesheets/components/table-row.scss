@@ -5,6 +5,7 @@
 	> .table-col > .button {
 		& {
 			@extend .btn, .btn-sm, .btn-primary;
+			width: 75px;
 		}
 		&.-danger {
 			@extend .btn-danger;
@@ -14,6 +15,20 @@
 		}
 		&.-disable {
 			@extend .disabled;
+		}
+	}
+}
+
+td, th {
+	@extend .align-middle;
+}
+
+
+@media (max-width: 575px) {
+	.table-row > .table-col {
+		> .button {
+			margin-bottom: 0.25rem;
+			&:last-of-type { margin-bottom: 0; }
 		}
 	}
 }

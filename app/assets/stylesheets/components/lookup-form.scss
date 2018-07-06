@@ -7,17 +7,28 @@
 	// Field Form
 	> .field-form {
 		@extend .col-9;
-		// @extend .col-md-7;
-	}
-	> .field-form > .field {
-		@extend .form-control, .form-control-lg;
+		// Field
+		& .field { @extend .form-control, .form-control-lg; }
 	}
 
 	// Button Form
 	> .button-form {
-		@extend .col-3;
+		& { @extend .col-3; }
+		// Button
+		& .button { @extend .btn, .btn-lg, .btn-primary, .btn-block; }
 	}
-	> .button-form > .button {
-		@extend .btn, .btn-lg, .btn-primary, .btn-block;
+}
+
+@media (max-width: 575px) {
+	.lookup-form > .field-form {
+		padding-right: 0.25rem;
+	}
+	.lookup-form > .button-form {
+		& {
+			padding-left: 0.25rem;
+		}
+		& .button {
+			padding: 0.5rem 0rem;
+		}
 	}
 }
