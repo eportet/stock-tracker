@@ -1,0 +1,31 @@
+<div id="stock-results">
+	<div class="row">
+		<div class="col-12">
+			<% if params[:action] == 'search' %>
+				<%= render 'layouts/messages' %>
+			<% end %>
+			<% if @stock %>
+				<div class="results-card">
+					<div class="results-body">
+						<div class="results-row">
+							<div class="results-info">
+								<div class="item"><strong>Symbol:</strong>&nbsp;<%= @stock.ticker %></div>
+								<div class="item"><strong>Name:</strong>&nbsp;<%= @stock.name %></div>
+								<div class="item"><strong>Price:</strong>&nbsp;<%= @stock.last_price %></div>
+							</div>
+							<div class="results-actions">
+								<% if current_user.can_add_stock?(@stock.ticker) %>
+									<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "button -green", method: :post %>
+								<% elsif current_user.stock_already_added?(@stock.ticker) && current_user.under_stock_limit? %>
+									<%= link_to "Added!", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "button -disable", method: :post %>
+								<% elsif !current_user.under_stock_limit? %>
+									<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "button -green -disable", method: :post %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

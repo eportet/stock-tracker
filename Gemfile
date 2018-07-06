@@ -13,6 +13,7 @@ gem 'devise-bootstrap-views'
 # Bootstrap
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem "font-awesome-rails"
 
 # Retrieve stock data with StockQuote
 gem "stock_quote", '~> 2.0.0'

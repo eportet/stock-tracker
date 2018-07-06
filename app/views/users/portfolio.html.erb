@@ -1,16 +1,5 @@
 <h1 align="center">My Portfolio</h1>
 
-
-<div class="stock-lookup">
-	<%= form_tag search_stocks_path, remote: true, method: :get, class: "stock-lookup-form" do %>
-		<div class="field-form">
-			<%= text_field_tag :stock, params[:stock], placeholder: "Stock Symbol", class: 'field', autofocus: true %>
-		</div>
-		<div class="button-form">
-			<%= button_tag 'Search', type: 'submit', class: 'button' %>
-		</div>
-	<% end %>
-</div>
-
-<%= render 'users/result' %>
+<%= render 'stocks/lookup' %>
+<%= render 'stocks/result' %>
 <%= render 'stocks/list' %>

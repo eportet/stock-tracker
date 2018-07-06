@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-12">
+		<% if params[:action] == 'search' %>
+			<%= render 'layouts/messages' %>
+		<% end %>
+		<% if @users and @users.size > 0 %>
+			<div class="results-card">
+				<div class="results-body">
+					<% @users.each do |user| %>
+					<div class="results-row">
+						<div class="results-info">
+							<div class="item"><strong>Name:</strong>&nbsp;<%= user.full_name %></div>
+							<div class="item"><strong>Email:</strong>&nbsp;<%= user.email %></div>
+						</div>
+						<div class="results-actions">
+							<%= link_to "Profile", user_path(user), class: "button" %>
+							<% if current_user.not_friends_with?(user.id) %>
+								<%= link_to "Add", add_friend_path(user: current_user, friend: user), class: "button -green", method: :post %>
+							<% else %>
+								<a class="button -blue -disable">Added</a>
+							<% end %>
+						</div>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

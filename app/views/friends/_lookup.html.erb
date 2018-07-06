@@ -1,0 +1,11 @@
+<%= form_tag search_friends_path, remote: true, method: :get, class: "lookup-form" do %>
+	<div class="field-form">
+		<%= text_field_tag :search_param, params[:search_param], placeholder: "Enter name or email", class: 'field', autofocus: true %>
+	</div>
+	<div class="button-form">
+		<%= button_tag 'Search', type: 'submit', class: 'button' %>
+	</div>
+<% end %>
+<div id="friends-results">
+	<%= render 'friends/results' %>
+</div>

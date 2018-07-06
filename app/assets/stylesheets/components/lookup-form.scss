@@ -1,0 +1,23 @@
+.lookup-form {
+	& {
+		@extend .row;
+		@extend .mb-3;
+	}
+
+	// Field Form
+	> .field-form {
+		@extend .col-9;
+		// @extend .col-md-7;
+	}
+	> .field-form > .field {
+		@extend .form-control, .form-control-lg;
+	}
+
+	// Button Form
+	> .button-form {
+		@extend .col-3;
+	}
+	> .button-form > .button {
+		@extend .btn, .btn-lg, .btn-primary, .btn-block;
+	}
+}

@@ -7,7 +7,7 @@ class StocksController < ApplicationController
 			flash.now[:danger] = "No matches were found" unless @stock
 		end
 		respond_to do |format|
-			format.js { render partial: 'users/result' }
+			format.js { render partial: 'stocks/result' }
 		end
 	end
 

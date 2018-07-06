@@ -1,0 +1,68 @@
+.results-card {
+	& {
+		@extend .card, .mb-3;
+	}
+	> .results-body {
+		@extend .card-body;
+		display: flex;
+		flex-direction: column;
+	}
+	// Row
+	> .results-body > .results-row {
+		display: flex;
+		margin-bottom: 1rem;
+		&:last-of-type { margin-bottom: 0; }
+	}
+	// Info
+	> .results-body > .results-row > .results-info {
+		display: flex;
+		flex-direction: column;
+		// Item
+		> .item {
+			display: flex;
+			align-items: center;
+			margin-right: 1rem;
+			&:last-of-type { margin-right: 0; }
+		}
+	}
+	// Actions
+	> .results-body > .results-row > .results-actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		align-items: center;
+		margin-left: auto;
+		// Buttons
+		> .button {
+			& {
+				@extend .btn, .btn-primary;
+				width: 80px;
+				height: 40px;
+				margin-right: 1rem;
+			}
+			&:last-of-type { margin-right: 0px; }
+			&.-green { @extend .btn-success; }
+			&.-grey { @extend .btn-secondary; }
+			&.-disable { @extend .disabled; }
+		}
+	}
+}
+
+@media all and (min-width: 768px) {
+	.results-card > .results-body > .results-row > .results-info {
+		flex-direction: row;
+		> .item {
+			width: 150px;
+		}
+	}
+}
+@media all and (min-width: 992px) {
+	.results-card > .results-body > .results-row > .results-info > .item {
+		width: 250px;
+	}
+}
+@media all and (min-width: 1200px) {
+	.results-card > .results-body > .results-row > .results-info > .item {
+		width: 300px;
+	}
+}

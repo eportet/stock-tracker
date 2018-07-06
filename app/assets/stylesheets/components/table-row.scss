@@ -1,13 +1,15 @@
-.stock-row {
-	> .stock-col {}
-	> .stock-col > .follow {
+.table-row {
+	> .table-col {
+
+	}
+	> .table-col > .button {
 		& {
 			@extend .btn, .btn-sm, .btn-primary;
 		}
-		&.-unfollow {
+		&.-danger {
 			@extend .btn-danger;
 		}
-		&.-added {
+		&.-success {
 			@extend .btn-success;
 		}
 		&.-disable {
