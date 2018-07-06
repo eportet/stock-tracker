@@ -1,3 +1,10 @@
-<div class="col-md-10 offset-md-1">
-	<h1 align="center">Welcome to the Finance Tracker WebApp</h1>
-</div>
+<% if current_user.blank? %>
+	<h1 align="center">Welcome to Stock Tracker!</h1>
+	<p align="center">Please sign up to start tracking stocks</p>
+	<div style="text-align: center">
+	<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg text-center" %>
+	</div>
+<% else %>
+	<h1 align="center">Welcome Back <%= current_user.full_name %>!</h1>
+	<%= render 'stocks/list' %>
+<% end %>

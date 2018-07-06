@@ -20,10 +20,10 @@ class UsersController < ApplicationController
 		redirect_to friends_path
 	end
 
-	def search
-		if params[:search_param].blank?
+	def search(search_param: params[:search_param])
+		if search_param.blank?
 		else
-			@users = User.search(params[:search_param])
+			@users = User.search(search_param)
 			@users =current_user.except_current_user(@users)
 			flash.now[:danger] = "No matches were found" if @users.blank?
 		end
