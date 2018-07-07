@@ -1,3 +1,3 @@
 # FINANCE TRACKER
 
-Track, search and follow financial stocks in a social web app.
+Track and follow financial stock, as well as, other users and the stocks that they are tracking.
