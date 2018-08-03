@@ -11,6 +11,22 @@
 		end
 	end
 
+	def self.new_from_lookup_crypto(ticker_symbol)
+		begin
+			n = Cryptocompare::CoinList.all["Data"][ticker_symbol]["CoinName"]
+			lp = Cryptocompare::Price.find(ticker_symbol, 'USD')[ticker_symbol]["USD"]
+			new(name: n, ticker: ticker_symbol, last_price: lp)
+		rescue Exception => e
+			return nil
+		end
+	end
+
+	def get_lp
+		looked_up_stock = StockQuote::Stock.quote(self.ticker)
+		self.last_price = looked_up_stock.latest_price
+		self.save
+	end
+
 	def self.find_by_ticker(ticker_symbol)
 		where(ticker: ticker_symbol).first
 	end
