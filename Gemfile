@@ -17,6 +17,8 @@ gem "font-awesome-rails"
 
 # Retrieve stock data with StockQuote
 gem "stock_quote", '~> 2.0.0'
+# Retrieve cryptocurrency data with CryptoCompare
+gem 'cryptocompare', '~> 0.14.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
