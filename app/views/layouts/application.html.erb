@@ -17,9 +17,9 @@
 		<![endif]-->
 	</head>
 	<body>
-		<div class="container-fluid">
+		<div class="container-fluid d-flex flex-column justify-content-between">
 			<%= render 'layouts/navbar' %>
-			<div class="container pt-3 d-flex flex-column">
+			<div class="container d-flex flex-column py-3">
 				<%= render 'layouts/messages' %>
 				<%= yield %>
 			</div>
