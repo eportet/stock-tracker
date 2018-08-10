@@ -1,0 +1,33 @@
+.welcome {
+	& {
+		background-color: $light;
+		display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+		@extend .card, .text-center, .align-middle;
+	}
+	> .welcome-body {
+		@extend .card-body;
+		> p,h1,a {
+			margin: 0;
+			margin-bottom: 1.5rem;
+		}
+	}
+	> .welcome-body > .welcome-text {
+		// margin-bottom: $spacing;
+	}
+	> .welcome-body > .welcome-signup {
+		@extend .btn, .btn-primary, .btn-lg;
+	}
+	> .welcome-body > .welcome-list {
+		& {
+			list-style-type: none;
+			padding-left: 0;
+			display: inline-block;
+			@extend .text-left;
+		}
+		> .item {
+
+		}
+	}
+}
