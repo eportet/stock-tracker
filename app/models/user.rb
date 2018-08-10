@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
-	devise	:database_authenticatable, :registerable,
+	devise	:database_authenticatable, :registerable, :confirmable,
 					:recoverable, :rememberable, :trackable, :validatable
 
 	has_many :user_stocks
@@ -21,7 +21,7 @@ class User < ApplicationRecord
 	end
 
 	def under_stock_limit?
-		(user_stocks.count < 10)
+		(user_stocks.count < 25)
 	end
 
 	def can_add_stock?(ticker_symbol)

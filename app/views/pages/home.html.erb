@@ -1,10 +1,19 @@
-<% if current_user.blank? %>
-	<h1 align="center">Welcome to Stock Tracker!</h1>
-	<p align="center">Please sign up to start tracking stocks</p>
-	<div style="text-align: center">
-	<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg text-center" %>
+<div class="row my-auto">
+	<div class="col-12 align-self-center">
+		<div class="welcome">
+			<div class="welcome-body">
+				<h1 class="welcome-title">Welcome to Stock Tracker!</h1>
+				<p class="welcome-text">This application will allow you to create a collection of your favourite stocks, check their prices and share them with random people on the <span title="World Wide Web">🌐</span> You can also check out what stocks those strangers are following 🔎</p>
+				<p class="welcome-text"><strong>What are you waiting for?</strong> Either sign up by clicking the button below, or <%= link_to "sign in", new_user_session_path %> if you already have an account with us!</p>
+				<%= link_to "Sign Up", new_user_registration_path, class: "welcome-signup" %>
+				<p class="welcome-text mb-1"><strong>On the Works:</strong></p>
+				<ul class="welcome-list">
+					<li><i class="fa fa-envelope fa-lg"></i> Verify Users with Emails</li>
+					<li><i class="fa fa-btc fa-lg"></i>&nbsp;&nbsp;Cryptocurrencies</li>
+					<li><i class="fa fa-credit-card-alt"></i> Using Stripe to Profit</li>
+					<li><i class="fa fa-code"></i>&nbsp;&nbsp;Friend a User from his Page</li>
+				</ul>
+			</div>
+		</div>
 	</div>
-<% else %>
-	<h1 align="center">Welcome Back <%= current_user.full_name %>!</h1>
-	<%= render 'stocks/list' %>
-<% end %>
+</div>
