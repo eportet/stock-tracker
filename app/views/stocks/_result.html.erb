@@ -15,10 +15,10 @@
 						<div class="results-actions">
 							<% if current_user.can_add_stock?(@stock.ticker) %>
 								<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "button -green", method: :post %>
-							<% elsif current_user.stock_already_added?(@stock.ticker) && current_user.under_stock_limit? %>
-								<%= link_to "Added!", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "button -disable", method: :post %>
+							<% elsif current_user.stock_already_added?(@stock.ticker) %>
+								<span class="button -disable">Added</span>
 							<% elsif !current_user.under_stock_limit? %>
-								<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "button -green -disable", method: :post %>
+								<span class="button -green -disable" title="Max number of stocks reached!">Follow</span>
 							<% end %>
 						</div>
 					</div>
