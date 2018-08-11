@@ -1,29 +1,33 @@
-<div class="row">
-	<div class="col-12">
-		<% if params[:action] == 'search' %>
-			<%= render 'layouts/messages' %>
-		<% end %>
-		<% if @stock %>
-			<div class="results-card">
-				<div class="results-body">
-					<div class="results-row">
-						<div class="results-info">
-							<div class="item"><strong>Symbol:</strong>&nbsp;<%= @stock.ticker %></div>
-							<div class="item"><strong>Name:</strong>&nbsp;<%= @stock.name %></div>
-							<div class="item"><strong>Price:</strong>&nbsp;<%= @stock.last_price %></div>
-						</div>
-						<div class="results-actions">
-							<% if current_user.can_add_stock?(@stock.ticker) %>
-								<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "button -green", method: :post %>
-							<% elsif current_user.stock_already_added?(@stock.ticker) %>
-								<span class="button -disable">Added</span>
-							<% elsif !current_user.under_stock_limit? %>
-								<span class="button -green -disable" title="Max number of stocks reached!">Follow</span>
-							<% end %>
+<% if params[:action] == 'search' %>
+	<div class="row my-2">
+		<div class="col-12">
+				<%= render 'layouts/messages' %>
+				<% if @stock %>
+					<div class="results-card">
+						<div class="results-body">
+							<div class="results-row">
+								<div class="results-info">
+									<div class="item"><strong>Symbol:</strong><%= @stock.ticker %></div>
+									<div class="item"><strong>Name:</strong><%= @stock.name %></div>
+									<div class="item"><strong>Price:</strong><%= @stock.last_price %></div>
+								</div>
+								<div class="results-actions">
+									<% if current_user.blank? %>
+										<span class="button -green -disable" title="Sign in to start tracking stocks!">Follow</span>
+									<% else %>
+										<% if current_user.can_add_stock?(@stock.ticker) %>
+											<%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: @stock.ticker), class: "button -green", method: :post %>
+										<% elsif current_user.stock_already_added?(@stock.ticker) %>
+											<span class="button -disable">Added</span>
+										<% elsif !current_user.under_stock_limit? %>
+											<span class="button -green -disable" title="Max number of stocks reached!">Follow</span>
+										<% end %>
+									<% end %>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		<% end %>
+				<% end %>
+		</div>
 	</div>
-</div>
+<% end %>
