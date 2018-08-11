@@ -1,7 +1,6 @@
 .lookup-form {
 	& {
-		@extend .row;
-		margin-bottom: 0 !important;
+		@extend .row, .my-2;
 	}
 
 	// Field Form
