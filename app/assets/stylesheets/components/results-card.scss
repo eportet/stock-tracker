@@ -1,6 +1,6 @@
 .results-card {
 	& {
-		@extend .card, .mb-3;
+		@extend .card;
 	}
 	> .results-body {
 		@extend .card-body;
@@ -24,6 +24,7 @@
 			align-items: center;
 			margin-right: 1rem;
 			&:last-of-type { margin-right: 0; }
+			> strong {margin-right: 0.25rem;}
 		}
 	}
 	// Actions

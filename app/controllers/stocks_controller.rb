@@ -1,4 +1,5 @@
 class StocksController < ApplicationController
+	skip_before_action :authenticate_user!, only: [:search]
 
 	def search
 		if params[:stock].blank?
