@@ -22,7 +22,9 @@ html, body {
 		@extend .px-2;
 	}
 }
-
 #welcome {
-	color: $light;
+	color: $white;
+	margin-bottom: 1rem;
+	@extend .text-center;
 }
+

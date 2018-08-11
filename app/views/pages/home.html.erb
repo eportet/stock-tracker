@@ -1,19 +1,24 @@
+<h1 id="welcome">Welcome to Stock Tracker!</h1>
+<%= render 'stocks/lookup' %>
 <div class="row my-auto">
 	<div class="col-12 align-self-center">
 		<div class="welcome">
 			<div class="welcome-body">
-				<h1 class="welcome-title">Welcome to Stock Tracker!</h1>
-				<p class="welcome-text">This application will allow you to create a collection of your favourite stocks, check their prices and share them with random people on the <span title="World Wide Web">🌐</span> You can also check out what stocks those strangers are following 🔎</p>
+				<h4>What can this do?</h4>
+				<p class="welcome-text">This application will allow you to create a collection of your favourite stocks, check their prices and share them with random people on the <span title="World Wide Web">🌐</span>. You can also check out what stocks those strangers are following. 🔎</p>
 				<p class="welcome-text"><strong>What are you waiting for?</strong> Either sign up by clicking the button below, or <%= link_to "sign in", new_user_session_path %> if you already have an account with us!</p>
 				<%= link_to "Sign Up", new_user_registration_path, class: "welcome-signup" %>
 				<p class="welcome-text mb-1"><strong>On the Works:</strong></p>
 				<ul class="welcome-list">
-					<li><i class="fa fa-envelope fa-lg"></i> Verify Users with Emails ✅</li>
+					<li><i class="fa fa-envelope fa-lg"></i> <s>Verify Users with Emails</s></li>
 					<li><i class="fa fa-btc fa-lg"></i>&nbsp;&nbsp;Cryptocurrencies</li>
 					<li><i class="fa fa-credit-card-alt"></i> Using Stripe to Profit</li>
-					<li><i class="fa fa-code"></i>&nbsp;&nbsp;Friend a User from his Page</li>
+					<li><i class="fa fa-code"></i>&nbsp;&nbsp;Friend a User from his Profile</li>
 				</ul>
+				<p class="welcome-text">I built this app to reinforce my Ruby on Rails <i class="fa fa-diamond" aria-hidden="true"></i> knowledge, and to try some new technologies that I had not played with before (Devise, SCSS, Bootstrap 4, APIs, and Heroku). Feel free to check out the <a href="https://github.com/eportet/stock-tracker">code</a> and tell me all of the things that I did wrong. 🙂 Thank you for checking this out!</p>
 			</div>
 		</div>
 	</div>
 </div>
+
+
