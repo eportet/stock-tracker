@@ -1,3 +1,30 @@
-.alert {
-	margin-top: 1rem;
+html, body {
+	min-height: 100vh;
+	background-color: $dark;
 }
+.container-fluid {
+  padding: 0;
+}
+.navbar {
+	background-color: $light !important;
+}
+.container {
+	// vh minus the height of the footer and the navbar
+	min-height: calc(100vh - 1rem - 40px - 1rem - 40px);
+}
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	// height: calc(40px + 1rem);
+	@extend .text-center, .py-2;
+	> .item {
+		@extend .px-2;
+	}
+}
+#welcome {
+	color: $white;
+	margin-bottom: .5rem;
+	@extend .text-center;
+}
+

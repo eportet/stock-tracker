@@ -1,4 +1,4 @@
-class Stock < ApplicationRecord
+ class Stock < ApplicationRecord
 	has_many :user_stocks
 	has_many :users, through: :user_stocks
 
@@ -19,6 +19,12 @@ class Stock < ApplicationRecord
 		rescue Exception => e
 			return nil
 		end
+	end
+
+	def get_lp
+		looked_up_stock = StockQuote::Stock.quote(self.ticker)
+		self.last_price = looked_up_stock.latest_price
+		self.save
 	end
 
 	def self.find_by_ticker(ticker_symbol)
