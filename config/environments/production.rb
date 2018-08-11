@@ -83,6 +83,10 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  # Mailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'finance.eportet.com', :protocol => 'http'}
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter

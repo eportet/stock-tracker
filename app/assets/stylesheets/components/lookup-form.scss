@@ -1,21 +1,24 @@
 .lookup-form {
 	& {
-		@extend .row;
-		@extend .mb-3;
+		@extend .row, .my-2;
 	}
 
 	// Field Form
 	> .field-form {
 		@extend .col-9;
 		// Field
-		& .field { @extend .form-control, .form-control-lg; }
+		> .field {
+			background-color: $light;
+			&:focus {background-color: $light;}
+			@extend .form-control, .form-control-lg;
+		}
 	}
 
 	// Button Form
 	> .button-form {
 		& { @extend .col-3; }
 		// Button
-		& .button { @extend .btn, .btn-lg, .btn-primary, .btn-block; }
+		> .button { @extend .btn, .btn-lg, .btn-primary, .btn-block; }
 	}
 }
 
@@ -27,7 +30,7 @@
 		& {
 			padding-left: 0.25rem;
 		}
-		& .button {
+		> .button {
 			padding: 0.5rem 0rem;
 		}
 	}

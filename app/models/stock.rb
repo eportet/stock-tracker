@@ -21,6 +21,12 @@ class Stock < ApplicationRecord
 		end
 	end
 
+	def get_lp
+		looked_up_stock = StockQuote::Stock.quote(self.ticker)
+		self.last_price = looked_up_stock.latest_price
+		self.save
+	end
+
 	def self.find_by_ticker(ticker_symbol)
 		where(ticker: ticker_symbol).first
 	end
